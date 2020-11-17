@@ -3,9 +3,9 @@ import business.control.Validate;
 import business.model.User;
 
 
-public class RegularRegistration implements SignUp {
+public class UserForm implements SignUp {
     String usuario, senha;
-    public RegularRegistration(String login, String password) {
+    public UserForm(String login, String password) {
         this.usuario = login;
         this.senha = password;
     }

@@ -1,5 +1,5 @@
 package infra;
 
-public class Persistencia {
+public class UserDAO {
 //classe para a persistencia do array de usuarios.
 }

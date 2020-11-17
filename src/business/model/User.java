@@ -10,4 +10,9 @@ public class User {
     public String getLogin() {
         return login;
     }
+
+    @Override
+    public String toString() {
+        return login;
+    }
 }
