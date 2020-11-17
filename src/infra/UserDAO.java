@@ -9,7 +9,9 @@ public class UserDAO {
         FileOutputStream fos = new FileOutputStream(filePath);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(users);
+        oos.flush();
         oos.close();
+        fos.close();
     }
 
 
@@ -21,16 +23,4 @@ public class UserDAO {
         fis.close();
         return users;
     }
-
-    //codigo de Andre pra ler
-            /*FileReader abrirArq = new FileReader(caminhoArquivo);
-            BufferedReader lerArq = new BufferedReader(abrirArq);
-
-            while (lerArq.ready()) {
-                String linha = lerArq.readLine();
-                this.users.add(linha);
-            }
-
-            abrirArq.close();
-            lerArq.close();*/
 }
