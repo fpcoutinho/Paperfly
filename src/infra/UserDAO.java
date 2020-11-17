@@ -1,5 +1,36 @@
 package infra;
+import business.model.User;
+import java.io.*;
+import java.util.ArrayList;
 
 public class UserDAO {
-//classe para a persistencia do array de usuarios.
+
+    public static void salvaUsers(ArrayList<User> users, String filePath) throws Exception {
+        FileOutputStream fos = new FileOutputStream(filePath);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(users);
+        oos.close();
+    }
+
+
+    public static ArrayList<User> lerUsers(String path) throws Exception {
+        FileInputStream fis = new FileInputStream(path);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        ArrayList<User> users = (ArrayList<User>) ois.readObject();
+        ois.close();
+        fis.close();
+        return users;
+    }
+
+    //codigo de Andre pra ler
+            /*FileReader abrirArq = new FileReader(caminhoArquivo);
+            BufferedReader lerArq = new BufferedReader(abrirArq);
+
+            while (lerArq.ready()) {
+                String linha = lerArq.readLine();
+                this.users.add(linha);
+            }
+
+            abrirArq.close();
+            lerArq.close();*/
 }

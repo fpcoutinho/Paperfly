@@ -1,6 +1,7 @@
 package business.model;
+import java.io.Serializable;
 
-public class User {
+public class User implements Serializable {
     String login, senha;
     public User(String user, String password){
         this.login = user;

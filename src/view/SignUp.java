@@ -1,5 +1,5 @@
 package view;
-
+import business.model.User;
 public interface SignUp {
-    public void Register();
+    public User Register();
 }
