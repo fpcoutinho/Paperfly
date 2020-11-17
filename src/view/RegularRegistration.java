@@ -1,4 +1,5 @@
 package view;
+import business.control.Validate;
 
 public class RegularRegistration implements SignUp {
     String usuario, senha;
@@ -8,5 +9,12 @@ public class RegularRegistration implements SignUp {
     }
     @Override
     public void Register() {
+        try {
+            Validate.checkLogin(usuario);
+            Validate.checkPassword(senha);
+            //codigo para add usuario no banco de dados vai aqui!
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
