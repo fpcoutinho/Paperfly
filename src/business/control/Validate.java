@@ -5,15 +5,15 @@ public class Validate {
 
     //checando se o nome do usuário é válido
     public static void checkLogin(String login) throws Exception{
-        if (!(login.length() == 0)){
+        if (login.length() == 0){
             throw new excecaoLoginEmpty();
-        }
-        //checando se a string contem numeros
-        else if (login.matches(".*\\d.*")){
-            throw new excecaoLoginNumbers();
         }
         else if (login.length() > 20){
             throw new excecaoLoginLength();
+        }
+        //checando se a string contem numeros
+        else if (login.matches(".*\\d.*")) {
+            throw new excecaoLoginNumbers();
         }
     }
 
