@@ -28,8 +28,17 @@ public class Validate {
     }
 
     public static boolean contem2Numeros(String senha){
-
-        return false;
+        int numbercount = 0;
+        for (int i = 0 ; i < senha.length() ; i++){
+            //checando se o caractere não é letra ou numero
+            if(!Character.isLetterOrDigit(senha.charAt(i))){
+                return false;
+            }
+            if(Character.isDigit(senha.charAt(i))){
+                numbercount++;
+            }
+        }
+        return (numbercount >= 2 && numbercount < senha.length());
     }
 
     //definindo Exceções Próprias
