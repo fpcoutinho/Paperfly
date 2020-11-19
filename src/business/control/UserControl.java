@@ -16,8 +16,8 @@ public class UserControl {
         }
     }
 
-    public void addUser(User u){
-        this.users.add(u);
+    public void addUser(User user){
+        this.users.add(user);
         try{
             UserDAO.salvaUsers(this.users, filePath);
         }catch(Exception e){
@@ -27,14 +27,14 @@ public class UserControl {
 
     public String listAll(){
         String lista = "";
-        for (User u:this.users) lista += u + "\n";
+        for (User user:this.users) lista += user + "\n";
         return lista;
     }
 
     public String list(String login) throws Exception{
-        for (User u:this.users)
-            if (u.getLogin().matches(login))
-                return u.toString();
+        for (User user:this.users)
+            if (user.getLogin().matches(login))
+                return user.toString();
 
         throw new userNotFoundException();
     }

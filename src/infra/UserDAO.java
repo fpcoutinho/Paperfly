@@ -7,12 +7,12 @@ public class UserDAO {
 
     public static void salvaUsers(ArrayList<User> users, String filePath) throws Exception {
         try {
-            FileOutputStream fos = new FileOutputStream(filePath);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(users);
-            oos.flush();
-            oos.close();
-            fos.close();
+            FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(users);
+            objectOutputStream.flush();
+            objectOutputStream.close();
+            fileOutputStream.close();
         } catch (IOException exception) {
             throw new IOException("Erro ao salvar usuário!", exception);
         }
@@ -21,11 +21,11 @@ public class UserDAO {
 
     public static ArrayList<User> lerUsers(String path) throws Exception {
         try {
-            FileInputStream fis = new FileInputStream(path);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            ArrayList<User> users = (ArrayList<User>) ois.readObject();
-            ois.close();
-            fis.close();
+            FileInputStream fileInputStream = new FileInputStream(path);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            ArrayList<User> users = (ArrayList<User>) objectInputStream.readObject();
+            objectInputStream.close();
+            fileInputStream.close();
             return users;
         } catch (IOException exception) {
             throw new IOException("Erro ao ler usuários!", exception);

@@ -17,7 +17,6 @@ public class UserForm implements SignUp {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        User u = new User(usuario, senha);
-        return u;
+        return new User(usuario, senha);
     }
 }
