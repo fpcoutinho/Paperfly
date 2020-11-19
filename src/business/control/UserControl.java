@@ -27,7 +27,9 @@ public class UserControl {
 
     public String listAll(){
         String lista = "";
-        for (User user:this.users) lista += user + "\n";
+        for (User user:this.users)
+            lista = lista.concat(user.toString()+ "\n");
+
         return lista;
     }
 
