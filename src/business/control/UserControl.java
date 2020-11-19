@@ -1,5 +1,7 @@
 package business.control;
 import java.util.ArrayList;
+
+import business.exception.UserNotFoundException;
 import business.model.User;
 import infra.UserDAO;
 
@@ -38,7 +40,7 @@ public class UserControl {
             if (user.getLogin().matches(login))
                 return user.toString();
 
-        throw new userNotFoundException();
+        throw new UserNotFoundException();
     }
 
     public boolean deleteUser(String login) throws Exception{
@@ -48,13 +50,6 @@ public class UserControl {
                 UserDAO.salvaUsers(this.users, filePath);
                 return true;
             }
-        throw new userNotFoundException();
-    }
-
-    public class userNotFoundException extends Exception{
-        @Override
-        public String getMessage(){
-            return "Usuário não encontrado.";
-        }
+        throw new UserNotFoundException();
     }
 }

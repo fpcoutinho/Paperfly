@@ -1,4 +1,7 @@
 package business.control;
+
+import business.exception.*;
+
 import java.lang.Character;
 
 public class Validate {
@@ -6,24 +9,24 @@ public class Validate {
     //checando se o nome do usuário é válido
     public static void checkLogin(String login) throws Exception{
         if (login.length() == 0){
-            throw new excecaoLoginEmpty();
+            throw new LoginEmptyException();
         }
         else if (login.length() > 20){
-            throw new excecaoLoginLength();
+            throw new LoginLengthException();
         }
         //checando se a string contem numeros
         else if (login.matches(".*\\d.*")) {
-            throw new excecaoLoginNumbers();
+            throw new LoginNumbersException();
         }
     }
 
     //checando se a senha do usuário é válida
     public static void checkPassword(String senha) throws Exception{
         if(!(senha.length() >= 8 && senha.length() <= 12)){
-            throw new excecaoPasswordLength();
+            throw new PasswordLengthException();
         }
         else if(!contem2Numeros(senha)){
-            throw new excecaoInvalidPassword();
+            throw new PasswordInvalidException();
         }
     }
 
@@ -39,38 +42,5 @@ public class Validate {
             }
         }
         return (numbercount >= 2 && numbercount < senha.length());
-    }
-
-    //definindo Exceções Próprias
-
-    public static class excecaoLoginLength extends Exception{
-        @Override
-        public String getMessage(){
-            return "Nome de usuario nao pode possuir mais de 20 caracteres.";
-        }
-    }
-    public static class excecaoLoginEmpty extends Exception{
-        @Override
-        public String getMessage(){
-            return "Nome de usuario nao pode ser vazio.";
-        }
-    }
-    public static class excecaoLoginNumbers extends Exception{
-        @Override
-        public String getMessage(){
-            return "Nome de usuario nao pode possuir caracteres numericos.";
-        }
-    }
-    public static class excecaoPasswordLength extends Exception{
-        @Override
-        public String getMessage(){
-            return "Senha deve possuir entre 8 e 12 caracteres.";
-        }
-    }
-    public static class excecaoInvalidPassword extends Exception{
-        @Override
-        public String getMessage(){
-            return "Senha deve possuir somente letras e numeros, e ao menos 2 números.";
-        }
     }
 }
