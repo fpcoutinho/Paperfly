@@ -19,7 +19,7 @@ public class Data implements Serializable {
     public int setYear(int year) {
         this.year = year;
     }
-
+    
     public int getDay() {
         return day;
     }
@@ -28,6 +28,19 @@ public class Data implements Serializable {
     }
     public int getYear() {
         return year;
+    }
+
+    public String getData(){
+        String d = Integer.toString(day);
+        String m = Integer.toString(month);
+        String y = Integer.toString(year);
+
+        String data = d.concat("/");
+        data = data.concat(m);
+        data = data.concat("/");
+        data = data.concat(y);
+
+        return data;
     }
 
 }
