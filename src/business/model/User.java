@@ -1,7 +1,7 @@
 package business.model;
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class User implements Serializable, Comparable<User> {
     String login, senha;
     Data data_nascimento;
     public User(String user, String password){
@@ -15,5 +15,10 @@ public class User implements Serializable {
 
     public Data getData(){
         return data_nascimento;
+    }
+
+    @Override
+    public int compareTo(User user) {
+        return this.login.compareTo(user.login);
     }
 }
