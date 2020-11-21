@@ -14,11 +14,11 @@ public class ComparadorData implements Comparable<Data> {
 
         if(Integer.compare(this.year, data.getYear()) == 0) {
             if(Integer.compare(this.month, data.getMonth()) == 0) {
-                return Integer.compare(this.day, data.getDay());
+                return (Integer.compare(this.day, data.getDay()) * -1);
             } else {
-                return Integer.compare(this.month, data.getMonth());
+                return (Integer.compare(this.month, data.getMonth()) * -1);
             }
         }
-        return Integer.compare(this.year, data.getYear());
+        return (Integer.compare(this.year, data.getYear()) * -1);
     }
 }
