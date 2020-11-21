@@ -1,5 +1,7 @@
 package business.control;
 import java.util.ArrayList;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import business.exception.UserNotFoundException;
 import business.model.User;
@@ -41,6 +43,13 @@ public class UserControl {
                 return user.toString();
 
         throw new UserNotFoundException();
+    }
+
+    //  lista os usuários por login em ordem alfabética crescente
+    public TreeSet<User> listUsersOrderByLogin() {
+        SortedSet listOrdered = new TreeSet();
+        listOrdered.addAll(this.users);
+        return (TreeSet<User>) listOrdered;
     }
 
     public boolean deleteUser(String login) throws Exception{
