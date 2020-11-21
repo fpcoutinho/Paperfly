@@ -1,13 +1,15 @@
 package business.model;
 import java.io.Serializable;
 
-public class Data implements Serializable, Comparable<Data> {
+public class Data implements Serializable {
     private int day, month, year;
+    private ComparadorData comparadorData;
     
     public Data(int day, int month, int year){
         this.day = day;
         this.month = month;
         this.year = year;
+        this.comparadorData = new ComparadorData(this.day, this.month, this.year);
     }
 
     public void setDay(int day) {
@@ -29,6 +31,9 @@ public class Data implements Serializable, Comparable<Data> {
     public int getYear() {
         return year;
     }
+    public ComparadorData getComparadorData() {
+        return this.comparadorData;
+    }
 
     public String getData(){
         String d = Integer.toString(day);
@@ -41,18 +46,5 @@ public class Data implements Serializable, Comparable<Data> {
         data = data.concat(y);
 
         return data;
-    }
-
-    @Override
-    public int compareTo(Data data) {
-
-       if(Integer.compare(this.year, data.getYear()) == 0) {
-           if(Integer.compare(this.month, data.getMonth()) == 0) {
-               return Integer.compare(this.day, data.getDay());
-           } else {
-               return Integer.compare(this.month, data.getMonth());
-           }
-       }
-        return Integer.compare(this.year, data.getYear());
     }
 }
