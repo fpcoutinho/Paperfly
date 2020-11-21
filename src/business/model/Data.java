@@ -10,13 +10,13 @@ public class Data implements Serializable {
         this.year = year;
     }
 
-    public int setDay(int day) {
+    public void setDay(int day) {
         this.day = day;
     }
-    public int setMonth(int month) {
+    public void setMonth(int month) {
         this.month = month;
     }
-    public int setYear(int year) {
+    public void setYear(int year) {
         this.year = year;
     }
     
