@@ -11,10 +11,21 @@ public class UserControl {
     ArrayList<User> users;
     String filePath;
 
+    public UserControl(){}
+
     public UserControl(String caminhoArquivo) { //caminhoArquivo seria algo do tipo "D:\\arquivo.txt"
         try {
             filePath = caminhoArquivo;
             this.users = UserDAO.lerUsers(caminhoArquivo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setFilePath(String filePath) {
+        try {
+            this.filePath = filePath;
+            this.users = UserDAO.lerUsers(filePath);
         } catch (Exception e) {
             e.printStackTrace();
         }
