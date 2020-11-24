@@ -10,16 +10,14 @@ public class UserForm implements SignUp {
     public UserForm(String login, String password, int dia, int mes, int ano) {
         this.usuario = login;
         this.senha = password;
-        this.data_nascimento.setDay(dia);
-        this.data_nascimento.setMonth(mes);
-        this.data_nascimento.setYear(ano);
+        this.data_nascimento = new Data(dia, mes, ano);
     }
     @Override
     public User Register() {
         try {
             Validate.checkLogin(usuario);
             Validate.checkPassword(senha);
-            Validate.checkData(data_nascimento.getData())
+            Validate.checkData(data_nascimento.getData());
         } catch (Exception e) {
             e.printStackTrace();
         }
