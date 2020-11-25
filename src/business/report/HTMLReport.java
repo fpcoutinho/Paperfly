@@ -6,6 +6,7 @@ import java.io.*;
 
 public class HTMLReport extends Report {
 
+    //using super()
     public HTMLReport(String filePath){
         super(filePath);
     }
