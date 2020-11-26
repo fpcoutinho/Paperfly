@@ -46,7 +46,7 @@ public class Validate {
 
     //checando se a data de nascimento, no formato string retornado por getData(), do usuario é valida DD/MM/AAAA
     public static void checkData(String data) throws Exception{
-        if(!data.matches(^(0[1-9]|[12][0-9]|3[01]) [/] (0[1-9]|1[012]) [/] (19|20)\d\d$){
+        if(!data.matches("^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\\d\\d$")){
             throw new DataInvalidException();
         }
     }
