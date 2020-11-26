@@ -1,13 +1,14 @@
 package view;
 import business.control.Validate;
 import business.model.User;
+import business.model.Employee;
 import business.model.Data;
 
 
-public class UserForm implements SignUp {
+public class EmployeeForm implements SignUpForm {
     String usuario, senha;
     Data data_nascimento;
-    public UserForm(String login, String password, int dia, int mes, int ano) {
+    public EmployeeForm(String login, String password, int dia, int mes, int ano) {
         this.usuario = login;
         this.senha = password;
         this.data_nascimento = new Data(dia, mes, ano);
@@ -21,6 +22,6 @@ public class UserForm implements SignUp {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new User(usuario, senha);
+        return new Employee(usuario, senha);
     }
 }

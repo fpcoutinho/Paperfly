@@ -1,7 +1,7 @@
 package business.model;
 import java.io.Serializable;
 
-public class User implements Serializable, Comparable<User> {
+public abstract class User implements Serializable, Comparable<User> {
     String login, senha;
     Data data_nascimento;
     public User(String user, String password){
