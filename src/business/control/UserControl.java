@@ -2,7 +2,7 @@ package business.control;
 import java.util.ArrayList;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
+import java.util.Iterator;
 import business.exception.UserNotFoundException;
 import business.model.User;
 import infra.UserDAO;
@@ -10,6 +10,7 @@ import infra.UserDAO;
 public class UserControl {
     ArrayList<User> users;
     String filePath;
+    Iterator<User> it;
 
     public UserControl(){}
 
@@ -49,10 +50,13 @@ public class UserControl {
     }
 
     public String list(String login) throws Exception{
-        for (User user:this.users)
-            if (user.getLogin().matches(login))
-                return user.toString();
-
+        it = users.iterator();
+        User u;
+        while(it.hasNext()) {
+            u = (User)it.next();
+            if (u.getLogin().matches(login))
+                return u.toString();
+        }
         throw new UserNotFoundException();
     }
 
@@ -64,12 +68,16 @@ public class UserControl {
     }
 
     public boolean deleteUser(String login) throws Exception{
-        for (int i = 0; i < this.users.size() ; i++)
-            if (this.users.get(i).getLogin().matches(login)) {
-                this.users.remove(i);
+        it = users.iterator();
+        User u;
+        while(it.hasNext()) {
+            u = (User)it.next();
+            if (u.getLogin().matches(login)) {
+                it.remove();
                 UserDAO.salvaUsers(this.users, filePath);
                 return true;
             }
+        }
         throw new UserNotFoundException();
     }
 }
