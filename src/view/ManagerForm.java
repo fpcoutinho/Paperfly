@@ -9,10 +9,10 @@ import business.model.Manager;
 public class ManagerForm implements SignUpForm {
     String usuario, senha;
     Data data_nascimento;
-    public ManagerForm(String login, String password, int dia, int mes, int ano) {
+    public ManagerForm(String login, String password, Data data) {
         this.usuario = login;
         this.senha = password;
-        this.data_nascimento = new Data(dia, mes, ano);
+        this.data_nascimento = data;
     }
     @Override
     public User Register() {

@@ -8,10 +8,10 @@ import business.model.Data;
 public class EmployeeForm implements SignUpForm {
     String usuario, senha;
     Data data_nascimento;
-    public EmployeeForm(String login, String password, int dia, int mes, int ano) {
+    public EmployeeForm(String login, String password, Data data) {
         this.usuario = login;
         this.senha = password;
-        this.data_nascimento = new Data(dia, mes, ano);
+        this.data_nascimento = data;
     }
     @Override
     public User Register() {
